@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+clear
+echo "Script initialized"
+
+#strict mode
+set -euo pipefail
+
+#assign top directory to print working directory
+TOP_DIR=${PWD}
+
+## Working Dir
+WORK_DIR="${TOP_DIR}/.cache"
+mkdir -p ${WORK_DIR}
+
+WORK_DATA_DIR="${WORK_DIR}/data"
+mkdir -p ${WORK_DATA_DIR}
+
+## Source
+DEV_ENV_DIR="${TOP_DIR}/src"
+
+source "${DEV_ENV_DIR}/misc.sh"
+
+# Install dependencies
+_auto_brew
